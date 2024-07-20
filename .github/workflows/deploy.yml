@@ -15,13 +15,14 @@ jobs:
     #   image: node:16
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: mongodb #github-action-learn.g45yvpc.mongodb.net
+      MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017 #mongodb #github-action-learn.g45yvpc.mongodb.net
       MONGODB_USERNAME: root # ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: example # ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     services:
       mongodb:
         image: mongo
+        ports: 27017
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example
